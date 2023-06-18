@@ -30,7 +30,7 @@ namespace ColorPickGame
                 Reset();
                 StartTime = DateTime.Now;
             }
-                NewQ();
+            NewQ();
         }
 
         private void Check_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace ColorPickGame
             Check.Enabled = false;
             StartNext.Enabled = true;
             Answer.Text = $"Answer\nR:{AnsColor.BackColor.R}\nG:{AnsColor.BackColor.G}\nB:{AnsColor.BackColor.B}";
-              StopStartTime = DateTime.Now;
+            StopStartTime = DateTime.Now;
             int Point = 765 - (Math.Abs(AnsColor.BackColor.R - (int)R.Value) + Math.Abs(AnsColor.BackColor.G - (int)G.Value) + Math.Abs(AnsColor.BackColor.B - (int)B.Value));
             AllScore += Point;
             PlusScore.Text = $"+{Point}";
@@ -93,20 +93,20 @@ namespace ColorPickGame
             StartNext.Text = "Start";
             Time.Text = (DateTime.Now - StartTime).ToString("mm\\:ss\\.ffff");
             HighScore.Text = $"HighScore:{MaxScore}";
-            Settings.Default.HighScore =  MaxScore;
+            Settings.Default.HighScore = MaxScore;
             Settings.Default.Save();
         }
 
         private void TimeUpdate_Tick(object sender, EventArgs e)
         {
-            if (prog != 0&&Check.Enabled)
+            if (prog != 0 && Check.Enabled)
                 Time.Text = (DateTime.Now - StartTime).ToString("mm\\:ss\\.ffff");
         }
 
         private void HighScoreReset_Click(object sender, EventArgs e)
         {
-            DialogResult ResetCheck = MessageBox.Show("ハイスコアをリセットしてもよろしいですか？", "確認",MessageBoxButtons.OKCancel,MessageBoxIcon.Exclamation);
-            if(ResetCheck == DialogResult.OK)
+            DialogResult ResetCheck = MessageBox.Show("ハイスコアをリセットしてもよろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (ResetCheck == DialogResult.OK)
             {
                 MaxScore = 0;
                 HighScore.Text = "HighScore:0";
